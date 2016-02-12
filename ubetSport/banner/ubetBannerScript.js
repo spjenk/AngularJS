@@ -2,7 +2,7 @@
 
     var app = angular.module("ubetBanner", []);
 
-    var MainController = function ($scope, $http) {
+    var UBetBannerController = function ($scope, $http) {
 
         $http.get('https://api.ubet.com/sales/vmax/web/data/sports/meeting/mainevent/subevent/2262007').success(function (data) {
             $scope.sportData = data;
@@ -14,6 +14,6 @@
         };
     };
 
-    app.controller("MainController", ["$scope", "$http", MainController]);
+    app.controller("UBetBannerController", ["$scope", "$http", UBetBannerController]);
 
 }());
