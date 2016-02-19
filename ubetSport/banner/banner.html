@@ -3,6 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+	<meta name="ad.size" content="width=300,height=250">
+	<script type="text/javascript">
+		var clickTag1 = "https://ubet.com/sports/rugby-league/nrl/nrl-round-1/parramatta-eels-v-brisbane-broncos-3-3"; 
+		var clickTag2 = "https://ubet.com/sports/rugby-league/nrl/nrl-round-1/parramatta-eels-v-brisbane-broncos-3-3"; 
+	</script>
 </head>
 
 <body>
@@ -18,13 +23,11 @@
             Meeting Name: {{sportData.Sport.Leagues[0].Meetings[0].MeetingName}}<br>
             Main Event: {{sportData.Sport.Leagues[0].Meetings[0].MainEvents[0].EventName}}<br>
             <br>
-            <a href="https://ubet.com/sports/rugby-league/nrl/nrl-round-1/parramatta-eels-v-brisbane-broncos-3-3"
-               target="_blank">
+            <a href="javascript:window.open(window.clickTag1)" target="_blank">
                 {{ubetOffers[0].OfferName}} {{ubetOffers[0].WinReturn}}
             </a>
             -
-            <a href="https://ubet.com/sports/rugby-league/nrl/nrl-round-1/parramatta-eels-v-brisbane-broncos-3-3"
-               target="_blank">
+            <a href="javascript:window.open(window.clickTag2)" target="_blank">            
                 {{ubetOffers[1].OfferName}} {{ubetOffers[1].WinReturn}}
             </a>
         </div>
