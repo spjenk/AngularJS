@@ -2,22 +2,48 @@
 <html ng-app="nrlMultiViewer">
 
 <head>
-  <script src="https://code.angularjs.org/1.3.5/angular.js" data-require="angular.js@1.3.5" data-semver="1.3.5"></script>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body ng-controller="MainController">
-  <h1>{{message}}</h1>
-  <div>{{ error }}</div>  
-  
-  Sport Id: {{sportData.Sport.SportId}}<br>
-  Sport Name: {{sportData.Sport.SportName}}<br>
- 
+<h1>{{message}}</h1>
+<div>{{ error }}</div>
+
+Sport: {{sportData.Sport.SportName}}<br>
+Meeting: {{sportData.Sport.Leagues[0].Meetings[0].MeetingName}}<br>
 <br>
 
-<div ng-repeat="subEvent in subEvents">        
-    {{subEvent.SubEventId}} - {{subEvent.Offers[0].OfferName}}:{{subEvent.Offers[0].WinReturn}} - {{subEvent.Offers[1].OfferName}}:{{subEvent.Offers[1].WinReturn}}
+<table>
+    <tr>
+        <th>subEventId</th>
+        <th>offerId</th>
+        <th>offerName</th>
+        <th>WinReturn</th>
+        <th>offerId</th>
+        <th>offerName</th>
+        <th>WinReturn</th>
+    </tr>
+    <tr ng-repeat="subEvent in subEvents">
+        <td>{{subEvent.SubEventId}}</td>
+        <td>{{subEvent.Offers[0].OfferId}}</td>
+        <td>{{subEvent.Offers[0].OfferName}}</td>
+        <td><a target="_blank"
+               ng-href="https://ubet.com/sports/bet-offer?WinPrice=2&Offers[0].SubEventId={{subEvent.SubEventId}}&Offers[0].OfferId={{subEvent.Offers[0].OfferId}}">
+            {{subEvent.Offers[0].WinReturn}}</a>
+        </td>
+        <td>{{subEvent.Offers[1].OfferId}}</td>
+        <td>{{subEvent.Offers[1].OfferName}}</td>
+        <td><a target="_blank"
+               ng-href="https://ubet.com/sports/bet-offer?WinPrice=2&Offers[0].SubEventId={{subEvent.SubEventId}}&Offers[0].OfferId={{subEvent.Offers[1].OfferId}}">
+            {{subEvent.Offers[1].WinReturn}}</a>
+        </td>
+    </tr>
+</table>
+<br>
+Gamble Responsibly, Gamblers Help 1800 858 858
+
 </div>
 
 </body>
