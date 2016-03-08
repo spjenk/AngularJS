@@ -10,9 +10,9 @@
 
         $http.get('https://api.ubet.com/sales/vmax/web/data/sports/league/48').success(function (data) {
             var meetings = data.Sport.Leagues[0].Meetings;
-            for (blah in meetings) {
-                if (meetings[blah].MatchRoundSeason == MATCH) {
-                    $http.get("https://api.ubet.com/sales/vmax/web/data/sports/meeting/" + meetings[blah].MeetingId)
+            for (meeting in meetings) {
+                if (meetings[meeting].MatchRoundSeason == MATCH) {
+                    $http.get("https://api.ubet.com/sales/vmax/web/data/sports/meeting/" + meetings[meeting].MeetingId)
                         .then(onMeeting, onError);
                 }
             }
@@ -20,8 +20,8 @@
 
         var onMeeting = function (response) {
             var mainEvents = response.data.Sport.Leagues[0].Meetings[0].MainEvents;
-            for (me in mainEvents) {
-                $http.get("https://api.ubet.com/sales/vmax/web/data/sports/mainevent/" + mainEvents[me].MainEventId)
+            for (mainEvent in mainEvents) {
+                $http.get("https://api.ubet.com/sales/vmax/web/data/sports/mainevent/" + mainEvents[mainEvent].MainEventId)
                     .then(onOffer, onError);
             }
         }
