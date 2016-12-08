@@ -4,11 +4,10 @@
 
     var MainController = function ($scope, $http) {
 
-        var H2H = 72;
         var OPEN = "o";
         var MATCH = "M";
 
-        $http.get('https://api.ubet.com/sales/vmax/web/data/sports/league/48').success(function (data) {
+        $http.get('https://api.ubet.com/sales/vmax/web/data/sports/league/83').success(function (data) {
             var meetings = data.Sport.Leagues[0].Meetings;
             for (meeting in meetings) {
                 if (meetings[meeting].MatchRoundSeason == MATCH) {
@@ -30,7 +29,7 @@
             var subEvents = response.data.MainEvent.SubEvents;
             for (subEvent in subEvents) {
                 var se = subEvents[subEvent];
-                if (se.BetTypeId == H2H && se.Status == OPEN) {
+                if (se.Status == OPEN) {
                     $scope.subEvents.push(se);
                 }
             }
@@ -42,7 +41,7 @@
 
         $scope.message = "Sports Multi"
         $scope.subEvents = []
-        $scope.userSelection = {};
+        $scope.userSelection = [];
     };
 
     app.controller("MainController", ["$scope", "$http", MainController]);

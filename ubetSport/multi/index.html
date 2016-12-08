@@ -17,12 +17,10 @@
         <th>offerId</th>
         <th>offerName</th>
         <th>WinReturn</th>
-        <th>Home</th>
         <th>subEventId</th>
-        <th>Away</th>
-        <th>offerId</th>
-        <th>offerName</th>
         <th>WinReturn</th>
+        <th>offerName</th>
+        <th>offerId</th>
     </tr>
     <tr ng-repeat="subEvent in subEvents">
         <td>{{subEvent.Offers[0].OfferId}}</td>
@@ -31,9 +29,7 @@
                ng-href="https://ubet.com/sports/bet-offer?WinPrice=2&Offers[0].SubEventId={{subEvent.SubEventId}}&Offers[0].OfferId={{subEvent.Offers[0].OfferId}}">
             {{subEvent.Offers[0].WinReturn}}</a>
         </td>
-        <td><input type="radio" ng-model="$userSelection[index]" id="radio_{{subEvent.Offers[0].OfferId}}" ng-value="subEvent.Offers[0]"/></td>
         <td>{{subEvent.SubEventId}}</td>
-        <td><input type="radio" ng-model="$userSelection[index]" id="radio_{{subEvent.Offers[1].OfferId}}" ng-value="subEvent.Offers[1]"/></td>
         <td><a target="_blank"
                ng-href="https://ubet.com/sports/bet-offer?WinPrice=2&Offers[0].SubEventId={{subEvent.SubEventId}}&Offers[0].OfferId={{subEvent.Offers[1].OfferId}}">
             {{subEvent.Offers[1].WinReturn}}</a>
@@ -42,6 +38,7 @@
         <td>{{subEvent.Offers[1].OfferId}}</td>
     </tr>
 </table>
+<p>{{userSelection}}</p>
 <br>
 Gamble Responsibly, Gamblers Help 1800 858 858
 <br><br>
